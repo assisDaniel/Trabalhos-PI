@@ -1,4 +1,4 @@
-# Trabalho de Processamento de Imagens - Interpolação Vizinho mais Próximo e Interpolação Bilinear. 
+# Trabalhos de Processamento de Imagens
 
 ## Para executar o código, criar uma venv com: 
 python -m venv venv

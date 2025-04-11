@@ -17,32 +17,26 @@ def rotulacao_componentes_conectados(imagem_binaria):
         for x in range(colunas):
             p = imagem_binaria[y, x]
             if p == 0:
-                continue  # Se p = 0 então verifica o próximo pixel
+                continue
 
-            # Examina os vizinhos r (esquerda) e t (acima)
             r = imagem_rotulada[y, x-1] if x > 0 else 0
             t = imagem_rotulada[y-1, x] if y > 0 else 0
 
             if r == 0 and t == 0:
-                # então rotula p com novo rótulo
                 imagem_rotulada[y, x] = rotulo_atual
                 equivalencias[rotulo_atual] = rotulo_atual
                 rotulo_atual += 1
             elif (r != 0 and t == 0) or (r == 0 and t != 0):
-                # rotula p com o rótulo de r ou de t
                 imagem_rotulada[y, x] = r if r != 0 else t
             elif r != 0 and t != 0:
                 if encontrar_rotulo_raiz(equivalencias, r) == encontrar_rotulo_raiz(equivalencias, t):
-                    # possuem o mesmo rótulo, então rotula p com este rótulo
                     imagem_rotulada[y, x] = encontrar_rotulo_raiz(equivalencias, r)
                 else:
-                    # possuem rótulos diferentes, então rotula p com um dos rótulos e indica equivalência
                     raiz_r = encontrar_rotulo_raiz(equivalencias, r)
                     raiz_t = encontrar_rotulo_raiz(equivalencias, t)
                     imagem_rotulada[y, x] = raiz_r
                     equivalencias[raiz_t] = raiz_r
 
-    # Segunda passagem: resolve equivalências
     rotulos_resolvidos = {}
     proximo_rotulo = 1
     for rotulo in range(1, rotulo_atual):
@@ -58,7 +52,6 @@ def rotulacao_componentes_conectados(imagem_binaria):
                 imagem_rotulada[y, x] = rotulos_resolvidos[raiz]
 
     return imagem_rotulada, proximo_rotulo - 1
-
 
 def encontrar_rotulo_raiz(equivalencias, rotulo):
     if equivalencias[rotulo] != rotulo:

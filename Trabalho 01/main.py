@@ -5,7 +5,7 @@ def main():
     choice = input("Digite 1 para vizinho mais próximo e 2 para bilinear:")
 
     if choice == '1':
-        arquivo_matriz = '/home/assisdaniel/Documentos/UFT/6º Período/Processamento de Imagens/Implementações/Trabalho 01/imagem1.png'
+        arquivo_matriz = './Trabalho 01/imagem1.png'
         interpolador = InterpolacaoVizinho(arquivo_matriz)
         matrizes_reduzidas, matrizes_ampliadas = interpolador.processar_imagens()
         interpolador.salvar_imagens(matrizes_reduzidas, matrizes_ampliadas)

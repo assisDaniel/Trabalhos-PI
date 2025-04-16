@@ -104,7 +104,7 @@ def mostrar_interface_usuario():
     print("=" * 60)
     print("ROTULAÇÃO DE COMPONENTES CONECTADOS EM IMAGENS BINÁRIAS")
     print("=" * 60)
-    caminho_imagem = "/home/assisdaniel/Documentos/UFT/6º Período/Processamento de Imagens/Implementações/asasas/Trabalho 02/image1.png"
+    caminho_imagem = "./Trabalho 02/image1.png"
     if not os.path.isfile(caminho_imagem):
         print(f"ERRO: O arquivo '{caminho_imagem}' não existe.")
         return

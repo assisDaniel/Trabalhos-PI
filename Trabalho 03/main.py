@@ -6,7 +6,7 @@ from PIL import Image
 
 
 def main():
-    img = Image.open("./Trabalho 03/imagem1.png")
+    img = Image.open("./Trabalho 03/Quizz2.png")
     img = img.convert("L")
 
     op_geometrica = Reflexao(img)
@@ -21,7 +21,7 @@ def main():
     img_refletida = Image.fromarray(img_refletida)
     img_refletida.save("./Trabalho 03/resultado-reflexao-h.png")
 
-    img_2 = Image.open("./Trabalho 03/imagem1.png")
+    img_2 = Image.open("./Trabalho 03/Quizz3.png")
     img_2 = img_2.convert("L")
 
     op_aritmetica = OperacaoAritmetica(imagem_1=img, imagem_2=img_2)

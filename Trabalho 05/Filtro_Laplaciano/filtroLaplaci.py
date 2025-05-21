@@ -68,5 +68,6 @@ while True:
             novaMatriz[i, j] = valor
 
     resultado = Image.fromarray(novaMatriz)
-    caminho_saida = f"/home/tarcisof/Documentos/Trabalhos-PI/Trabalho 05/Filtro_Laplaciano/lena.png"
-    resultado.save(caminho_saida)
+    # caminho_saida = f"/home/tarcisof/Documentos/Trabalhos-PI/Trabalho 05/Filtro_Laplaciano/lena.png"
+    # resultado.save(caminho_saida)
+    resultado.show()

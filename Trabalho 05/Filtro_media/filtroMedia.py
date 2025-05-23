@@ -12,7 +12,9 @@ Logo, o multiplicador constante é 1/9
 """
 
 try:
-    imagem = np.array(Image.open("Trabalho 05/lena.png").convert("L"))
+    imagem = np.array(Image.open("lena.png").convert("L"))
+    imagem2 = Image.fromarray(imagem)
+    imagem2.show()
 except FileNotFoundError:
     print("Imagem não encontrada. Verifique o nome do arquivo.")
     exit()

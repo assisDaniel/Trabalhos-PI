@@ -3,6 +3,17 @@ import numpy as np
 
 from erosao_dilatacao import binarizarImagem, aplicarErosao
 
+def diferenca(imagem1_pil, imagem2_pil):
+    img1NP = np.array(imagem1_pil)
+    img2NP = np.array(imagem2_pil)
+
+    img1NP = img1NP.astype(np.int16)
+    img2NP = img2NP.astype(np.int16)
+
+    diferencaNP = np.abs(img1NP - img2NP).astype(np.uint8)
+
+    return Image.fromarray(diferencaNP)
+
 def extrairContornos(caminhoImagem):
     imagem = Image.open(caminhoImagem)
 
@@ -16,7 +27,7 @@ def extrairContornos(caminhoImagem):
 
     imagemErodida = aplicarErosao(imagemBinariaNp, elementoEstruturante)
 
-    imagemContorno = ImageChops.difference(imagemBinariaPIL, imagemErodida)
+    imagemContorno = diferenca(imagemBinariaPIL, imagemErodida)
 
     imagemContorno.show()
 

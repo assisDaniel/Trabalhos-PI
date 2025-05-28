@@ -21,11 +21,8 @@ def erosao(imagem_np, nucleo):
             imagem_erodida[i, j] = valor
     return Image.fromarray(imagem_erodida)
 
-imagem = Image.open('placa.jpg')
-
-imagem_binaria = binarizarImagem(imagem)
-
-imagem_binaria.save('placa-binarizada.jpg')
+imagem = Image.open('uft.jpg')
+imagem_binaria = binarizarImagem(imagem).convert('L')
 
 imagem_binaria_np = np.array(imagem_binaria, dtype=np.uint8)
 
@@ -35,4 +32,4 @@ nucleo = np.array([[255, 255, 255],
 
 imagem_erodida = erosao(imagem_binaria_np, nucleo)
 
-imagem_erodida.save('placa-erodida.jpg')
+imagem_erodida.show('uft.jpg')

@@ -22,11 +22,9 @@ def dilatar(imagem, nucleo):
             imagem_dilatada[i, j] = 255 if comparar else 0
     return Image.fromarray(imagem_dilatada)
 
-imagem = Image.open('placa.jpg')
+imagem = Image.open('uft.jpg')
 
-imagem_binaria = binarizarImagem(imagem)
-
-imagem_binaria.save('placa-binarizada.jpg')
+imagem_binaria = binarizarImagem(imagem).convert('L')
 
 imagem_binaria_np = np.array(imagem_binaria, dtype=np.uint8)
 
@@ -36,4 +34,4 @@ nucleo = np.array([[255, 255, 255],
 
 imagem_dilatada = dilatar(imagem_binaria_np, nucleo)
 
-imagem_dilatada.save('placa-dilatada.jpg')
+imagem_dilatada.show('uft.jpg')

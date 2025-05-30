@@ -4,4 +4,4 @@
 python -m venv venv
 
 ## Para instalar as dependências:
-pip install numpy, matplotlib, pillow
+pip install -r requirements.txt
